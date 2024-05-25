@@ -32,10 +32,13 @@ func (r *Relay) Start() {
 
 	relayAddr, _ := multiaddr.NewMultiaddr(fmt.Sprintf("/p2p/%s", r.host.ID().String()))
 	for _, addr := range r.host.Addrs() {
-		fmt.Println(addr.Encapsulate(relayAddr))
+		log.Default().Println(addr.String())
 	}
 
-	fmt.Println("Relay node created")
+	log.Default().Printf("Relay node: %s\n", r.host.ID().String())
+	log.Default().Printf("Relay address: %s\n", relayAddr.String())
+	log.Default().Println("Relay complete address: ", r.host.Addrs()[0].Encapsulate(relayAddr).String())
+
 	signal.Notify(r.stopCh, syscall.SIGINT, syscall.SIGTERM)
 
 	select {
