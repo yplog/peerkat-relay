@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"github.com/libp2p/go-libp2p"
 	"github.com/libp2p/go-libp2p/core/host"
+	"github.com/libp2p/go-libp2p/core/network"
 	"github.com/multiformats/go-multiaddr"
 	"log"
 	"os"
@@ -34,6 +35,15 @@ func (r *Relay) Start() {
 	for _, addr := range r.host.Addrs() {
 		log.Default().Println(addr.String())
 	}
+
+	r.host.Network().Notify(&network.NotifyBundle{
+		ConnectedF: func(n network.Network, c network.Conn) {
+			fmt.Printf("Peer %s connected\n", c.RemotePeer().String())
+		},
+		DisconnectedF: func(n network.Network, c network.Conn) {
+			fmt.Printf("Peer %s disconnected\n", c.RemotePeer().String())
+		},
+	})
 
 	log.Default().Printf("Relay node: %s\n", r.host.ID().String())
 	log.Default().Printf("Relay address: %s\n", relayAddr.String())
