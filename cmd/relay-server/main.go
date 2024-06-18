@@ -6,7 +6,7 @@ import (
 )
 
 func main() {
-	log.Default().Println("Starting relay node...")
+	log.Println("Starting relay node...")
 	relayNode := relay.New()
 
 	relayNode.Start()
