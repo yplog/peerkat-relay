@@ -1,7 +1,7 @@
 package main
 
 import (
-	"github.com/yplog/peerkat-relay/pkg/relay"
+	"github.com/yplog/peerkat-relay/internal/relay"
 	"log"
 )
 
