@@ -1,7 +1,7 @@
 # Peerkat Relay
 
 <p align="center">
-    <img src="https://yalinpala.dev/projects/peerkat-relay.png" alt="peerkat logo"  width="250" height="250">
+    <img src="https://www.dropbox.com/scl/fi/a7kdukhp1xwte3f9ggx9g/peerkat-server.png?rlkey=2clagjoim6inhl7m3zv67gy18&st=jmwu6kol&raw=1" alt="peerkat logo"  width="250" height="250">
 </p>
 
 Peerkat Relay is a simple and lightweight relay server for [Peerkat](https://github.com/yplog/peerkat). It is designed to be used with Peerkat, a peer-to-peer file sending application.
